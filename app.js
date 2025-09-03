@@ -7,7 +7,6 @@ const checkForAuthenticationCookie = require("./middleware/authentication");
 const Blog = require("./model/blog");
 const methodOverride = require("method-override");
 const path = require("path");
-const serverless = require("serverless-http");
 
 const PORT = process.env.PORT || 8000;
 const MONGO_URL = process.env.MONGO_URL;
@@ -48,5 +47,3 @@ app.use("/blog", blogRoute);
 app.listen(PORT, () => {
   console.log(`server is started on ${PORT}`);
 });
-
-module.exports.handler = serverless(app);
